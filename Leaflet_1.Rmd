@@ -1,0 +1,29 @@
+---
+title: "Test Github Doc"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#Leaflet
+
+```{r}
+library(leaflet)
+library(mapedit)
+library(sf)
+
+set.seed(1988)
+
+long <- sample(seq(-73.9995, -73.9688, 0.0001), 100, replace = TRUE)
+lat <- sample(seq(40.7483, 40.7646, 0.0001), 100, replace = TRUE)
+
+df <- data.frame(long, lat, id = 1:100)
+
+leaflet(df) %>%
+  addTiles() %>%
+  addMarkers()
+
+```
